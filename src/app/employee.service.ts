@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  public customHeaders = new HttpHeaders();
 
   constructor(
     private http: HttpClient
   ) {
-    this.customHeaders.set('Access-Control-Allow-Origin', '*');
-    this.customHeaders.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   }
 
   public getEmployees(): Observable<any> {

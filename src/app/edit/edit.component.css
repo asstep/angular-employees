@@ -1,0 +1,7 @@
+.form {
+  margin: auto;
+  max-width: 900px;
+}
+.form__control {
+  margin: 10px 15px;
+}

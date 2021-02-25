@@ -1,0 +1,38 @@
+<button mat-raised-button
+        class="create-button"
+        color="accent"
+        [routerLink]="['/employees']">Cancel</button>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  <mat-form-field class="form__control" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput
+           formControlName="employee_name">
+  </mat-form-field>
+
+  <mat-form-field class="form__control" appearance="fill">
+    <mat-label>Salary</mat-label>
+    <input matInput
+           formControlName="employee_salary"
+           type="number"
+           class="example-right-align">
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+
+
+  <mat-form-field class="form__control" appearance="fill">
+    <mat-label>Age</mat-label>
+    <input matInput
+           formControlName="employee_age"
+           type="number"
+           class="example-right-align">
+    <span matSuffix>years</span>
+  </mat-form-field>
+
+  <button type="submit"
+          mat-raised-button
+          class="create-button form__button"
+          color="accent"
+          [innerText]="type === 'create' ? 'Create' : 'Save'"></button>
+</form>

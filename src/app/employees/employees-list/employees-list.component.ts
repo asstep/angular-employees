@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {EmployeeService} from '../employee.service';
+import { EmployeeService } from '../../services/employee.service';
 
 export interface IemployeesList {
   id: number;
@@ -10,11 +10,11 @@ export interface IemployeesList {
 }
 
 @Component({
-  selector: 'app-employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.css']
+  selector: 'app-employees-list',
+  templateUrl: './employees-list.component.html',
+  styleUrls: ['./employees-list.component.css']
 })
-export class EmployeesComponent implements OnInit {
+export class EmployeesListComponent implements OnInit {
   public employeesList: Array<IemployeesList> = [];
   public displayedColumns: string[] = ['id', 'employee_name', 'employee_age', 'employee_salary', 'profile_image', 'actions'];
 
@@ -26,15 +26,14 @@ export class EmployeesComponent implements OnInit {
     this.service.getEmployees().subscribe((res) => this.employeesList = res.data);
   }
 
-  public deleteEmployee(element): void {
-    const id = element.id;
+  public deleteEmployee(id): void {
     const conf = confirm('Are you sure?');
 
     if (conf) {
       this.service.deleteEmployeeById(id)
         .subscribe(
           (res) => {
-            alert(res.message ?? 'success');
+            alert(res.message ?? 'Success');
           }, (err) => {
             alert('Error');
           }

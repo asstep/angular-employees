@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
+  public httpSettings = {
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json; charset=utf-8',
+    })
+  };
 
   constructor(
     private http: HttpClient
@@ -22,9 +28,9 @@ export class EmployeeService {
 
   public saveEmployee(body: any, id: number): Observable<any> {
     if (id) {
-      return this.http.put(`http://dummy.restapiexample.com/api/v1/update/${id}`, body);
+      return this.http.put(`http://dummy.restapiexample.com/api/v1/update/${id}`, body, this.httpSettings);
     } else {
-      return this.http.post('http://dummy.restapiexample.com/api/v1/create', body);
+      return this.http.post('http://dummy.restapiexample.com/api/v1/create', body, this.httpSettings);
     }
   }
 

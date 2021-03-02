@@ -6,7 +6,39 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-center {
   text-align: center !important;
 }
+
+.container {
+  display: block;
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+.wrapper {
+  padding-top: 20px;
+  padding-right: 20px;
+}
+.fullWidth {
+  max-width: 100%;
+  width: 100%;
+}
+.buttonRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
 .buttonRow button {
   margin-left: 5px;
   margin-right: 5px;
+  width: 50%;
 }
+
+.form {
+  margin: auto;
+  max-width: 900px;
+}
+.form__control {
+  margin: 10px 15px;
+}
+

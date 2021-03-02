@@ -1,25 +1,36 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {EmployeesComponent} from './employees/employees.component';
-import {EditComponent} from './edit/edit.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {EmployeeEditComponent} from './employees/employee-edit/employee-edit.component';
+import {UserEditComponent} from './users/user-edit/user-edit.component';
+
 
 const routes: Routes = [
-  { path: '', redirectTo: '/employees', pathMatch: 'full' },
-  { path: 'employees', component: EmployeesComponent },
-  { path: 'create',
-    component: EditComponent,
+  {
+    path: '',
+    component: DashboardComponent,
+  },
+  {
+    path: 'employees',
+    loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule),
+  },
+  {
+    path: 'users/create',
+    component: UserEditComponent,
     data: {
       type: 'create'
     },
   },
-  { path: 'edit/:id',
-    component: EditComponent,
+  {
+    path: 'users/edit/:id',
+    component: UserEditComponent,
     data: {
       type: 'edit'
     },
   },
-  { path: '**', redirectTo: '/employees', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

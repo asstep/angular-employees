@@ -1,7 +1,7 @@
 <button mat-raised-button
         class="create-button"
         color="accent"
-        [routerLink]="['/create']">Create</button>
+        [routerLink]="['/employees/create']">Create</button>
 
 <table mat-table
        [dataSource]="employeesList"
@@ -29,7 +29,7 @@
 
   <ng-container matColumnDef="profile_image">
     <th mat-header-cell *matHeaderCellDef> Image </th>
-    <td mat-cell *matCellDef="let element"> {{element.profile_image || ''}} </td>
+    <td mat-cell *matCellDef="let element"><img src="{{element.profile_image || ''}}" alt=""> </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
@@ -38,11 +38,11 @@
       <div class="buttonRow">
         <button mat-raised-button
                 color="primary"
-                [routerLink]="['/edit', element?.id]">Edit</button>
+                [routerLink]="['/employees/edit', element?.id]">Edit</button>
 
         <button mat-raised-button
                 color="warn"
-                (click)="deleteEmployee(element)">Delete</button>
+                (click)="deleteEmployee(element?.id)">Delete</button>
       </div>
     </th>
   </ng-container>

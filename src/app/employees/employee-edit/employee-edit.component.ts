@@ -1,14 +1,14 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {EmployeeService} from '../employee.service';
+import {EmployeeService} from '../../services/employee.service';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  selector: 'app-employee-edit',
+  templateUrl: './employee-edit.component.html',
+  styleUrls: ['./employee-edit.component.css']
 })
-export class EditComponent implements OnInit {
+export class EmployeeEditComponent implements OnInit {
   public id: number;
   public type: string;
   public form: FormGroup;
@@ -38,9 +38,9 @@ export class EditComponent implements OnInit {
   }
 
   public onSubmit(): void {
-      const saveMethod = this.service.saveEmployee(this.form.value, this.id).subscribe(
+    this.service.saveEmployee(this.form.value, this.id).subscribe(
       (res) => {
-        alert(res.message);
+        alert(res.message ?? 'Success');
         // this.router.navigate(['/']);
       }, (err) => {
         alert('Error');

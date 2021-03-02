@@ -1,0 +1,31 @@
+<button mat-raised-button
+        class="create-button"
+        color="accent"
+        [routerLink]="['']">Cancel</button>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  <mat-form-field class="form__control" appearance="fill">
+    <mat-label>First name</mat-label>
+    <input matInput
+           formControlName="first_name">
+  </mat-form-field>
+
+  <mat-form-field class="form__control" appearance="fill">
+    <mat-label>Last name</mat-label>
+    <input matInput
+           formControlName="last_name">
+  </mat-form-field>
+
+  <mat-form-field class="form__control" appearance="fill">
+    <mat-label>email</mat-label>
+    <input matInput
+           formControlName="email">
+  </mat-form-field>
+
+
+  <button type="submit"
+          mat-raised-button
+          class="create-button form__button"
+          color="accent"
+          [innerText]="type === 'create' ? 'Create' : 'Save'"></button>
+</form>

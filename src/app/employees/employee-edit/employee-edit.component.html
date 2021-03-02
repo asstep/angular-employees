@@ -1,7 +1,7 @@
 <button mat-raised-button
         class="create-button"
         color="accent"
-        [routerLink]="['/employees']">Cancel</button>
+        [routerLink]="['']">Cancel</button>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
   <mat-form-field class="form__control" appearance="fill">
@@ -20,7 +20,6 @@
     <span matSuffix>.00</span>
   </mat-form-field>
 
-
   <mat-form-field class="form__control" appearance="fill">
     <mat-label>Age</mat-label>
     <input matInput
@@ -36,3 +35,4 @@
           color="accent"
           [innerText]="type === 'create' ? 'Create' : 'Save'"></button>
 </form>
+

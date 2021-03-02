@@ -1,0 +1,11 @@
+.trRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+.trRow .tdCell__6 {
+  padding: 10px 15px;
+  width: 50%;
+}
